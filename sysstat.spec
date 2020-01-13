@@ -1,12 +1,10 @@
 Name:    sysstat
 Version: 12.1.6
-Release: 1
+Release: 2
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
 Source0: http://sebastien.godard.pagesperso-orange.fr/%{name}-%{version}.tar.xz
-Source1: colorsysstat.csh
-Source2: colorsysstat.sh
 
 BuildRequires: gcc, gettext, lm_sensors-devel, systemd
 
@@ -16,7 +14,6 @@ Requires(preun): systemd
 Requires(postun): systemd
 
 Patch9000: bugfix-sysstat-10.1.5-read-ttyAMA-first-for-arm64.patch
-
 
 %description
 The sysstat package contains various utilities, common to many commercial 
@@ -59,9 +56,6 @@ export compressafter="31"
 %install
 %make_install
 %find_lang %{name}
-mkdir -p %{buildroot}%{_sysconfdir}/profile.d
-install -p -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/profile.d
-install -p -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/profile.d
 
 %check
 
@@ -81,7 +75,6 @@ install -p -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/profile.d
 %doc CHANGES COPYING CREDITS FAQ.md README.md %{name}-%{version}.lsm
 %config(noreplace) %{_sysconfdir}/sysconfig/sysstat
 %config(noreplace) %{_sysconfdir}/sysconfig/sysstat.ioconf
-%config(noreplace) %{_sysconfdir}/profile.d/*
 %{_bindir}/*
 %{_libdir}/sa
 %{_unitdir}/sysstat*
@@ -89,6 +82,9 @@ install -p -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/profile.d
 %{_mandir}/man*/*
 
 %changelog
+* Mon Jan 13 2020 openEuler Buildteam <buildteam@openeuler.org> - 12.1.6-2
+- Delete useless files.
+
 * Sat Sep 07 2019 openEuler Buildteam <buildteam@openeuler.org> - 12.1.6-1
 - Package init
 
