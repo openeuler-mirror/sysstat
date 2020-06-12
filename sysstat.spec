@@ -1,6 +1,6 @@
 Name:    sysstat
-Version: 12.1.6
-Release: 3
+Version: 12.2.2
+Release: 1
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
@@ -82,6 +82,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Thu Jun 11 2020 hanhui<hanhui15@huawei.com> - 12.2.2
+- update version to 12.2.2
+
 * Fri May 29 2020 openEuler Buildteam <buildteam@openeuler.org> - 12.1.6-3
 - rebuild for lm_sensors version update
 
