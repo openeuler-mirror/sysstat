@@ -1,5 +1,5 @@
 Name:    sysstat
-Version: 12.2.2
+Version: 12.2.1
 Release: 1
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
@@ -82,6 +82,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Tue Aug 04 2020 shanzhikun <shanzhikun@huawei.com> - 12.2.1-1
+- downgrade sysstat to 12.2.1.
+
 * Fri Jul 17 2020 shixuantong <shixuantong@huawei.com> - 12.2.2-1
 - update version to 12.2.2-1
 
