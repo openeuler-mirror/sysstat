@@ -1,5 +1,5 @@
 Name:    sysstat
-Version: 12.2.2
+Version: 12.5.2
 Release: 1
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
@@ -78,10 +78,14 @@ export compressafter="31"
 %{_bindir}/*
 %{_libdir}/sa
 %{_unitdir}/sysstat*
+%{_prefix}/lib/systemd/system-sleep/sysstat.sleep
 %{_localstatedir}/log/sa
 %{_mandir}/man*/*
 
 %changelog
+* Tue Feb 2 2021 yuanxin <yuanxin24@huawei.com> - 12.5.2-1
+- Upgrade version to 12.5.2
+
 * Thu Jun 11 2020 hanhui<hanhui15@huawei.com> - 12.2.2
 - update version to 12.2.2
 
