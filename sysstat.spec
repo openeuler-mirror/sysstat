@@ -1,10 +1,10 @@
 Name:    sysstat
-Version: 12.5.2
+Version: 12.5.4
 Release: 1
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
-Source0: http://sebastien.godard.pagesperso-orange.fr/%{name}-%{version}.tar.xz
+Source0: http://sebastien.godard.pagesperso-orange.fr/%{name}-%{version}.tar.gz
 
 BuildRequires: gcc, gettext, lm_sensors-devel, systemd
 
@@ -77,8 +77,7 @@ export compressafter="31"
 %config(noreplace) %{_sysconfdir}/sysconfig/sysstat.ioconf
 %{_bindir}/*
 %{_libdir}/sa
-%{_unitdir}/sysstat*
-%{_prefix}/lib/systemd/system-sleep/sysstat.sleep
+%{_unitdir}/../*
 %{_localstatedir}/log/sa
 %{_mandir}/man*/*
 
