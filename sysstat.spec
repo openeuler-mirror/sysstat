@@ -1,10 +1,12 @@
 Name:    sysstat
 Version: 12.2.1
-Release: 1
+Release: 2
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
 Source0: http://sebastien.godard.pagesperso-orange.fr/%{name}-%{version}.tar.xz
+
+Patch0000: backport-CVE-2022-39377.patch
 
 BuildRequires: gcc, gettext, lm_sensors-devel, systemd
 
@@ -82,6 +84,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Thu Nov 10 2022  zhouwenpei <zhouwenpei1@h-partners.com> - 12.2.1-2
+- fix CVE-2022-39377
+
 * Tue Aug 04 2020 shanzhikun <shanzhikun@huawei.com> - 12.2.1-1
 - downgrade sysstat to 12.2.1.
 
