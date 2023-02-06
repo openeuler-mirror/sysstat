@@ -1,12 +1,10 @@
 Name:    sysstat
-Version: 12.5.4
-Release: 5
+Version: 12.6.2
+Release: 1
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
 Source0: https://github.com/sysstat/sysstat/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
-
-Patch0000: backport-CVE-2022-39377.patch
 
 BuildRequires: gcc, gettext, lm_sensors-devel, systemd
 
@@ -85,6 +83,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Fri Feb 03 2023 zhangpan <zhangpan@h-partners.com> - 12.6.2-1
+- update to 12.6.2
+
 * Fri Nov 25 2022 zhouwenpei <zhouwenpei1@h-partners.com> - 12.5.4-5
 - update Source0
 
