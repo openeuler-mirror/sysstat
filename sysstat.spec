@@ -1,6 +1,6 @@
 Name:    sysstat
 Version: 12.2.1
-Release: 2
+Release: 3
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
@@ -60,6 +60,7 @@ export compressafter="31"
 %find_lang %{name}
 
 %check
+./do_test
 
 %pre
 
@@ -84,6 +85,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Fri Mar 17 2023  zhangpan <zhangpan103@h-partners.com> - 12.2.1-3
+- enable test
+
 * Thu Nov 10 2022  zhouwenpei <zhouwenpei1@h-partners.com> - 12.2.1-2
 - fix CVE-2022-39377
 
