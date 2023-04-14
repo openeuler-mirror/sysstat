@@ -1,6 +1,6 @@
 Name:    sysstat
 Version: 12.5.4
-Release: 5
+Release: 6
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
@@ -74,6 +74,9 @@ export compressafter="31"
 %postun
 %systemd_postun sysstat.service sysstat-collect.timer sysstat-summary.timer
 
+%posttrans
+/usr/bin/systemctl enable sysstat.service >/dev/null 2>&1
+
 %files -f %{name}.lang
 %doc CHANGES COPYING CREDITS FAQ.md README.md %{name}-%{version}.lsm
 %config(noreplace) %{_sysconfdir}/sysconfig/sysstat
@@ -85,6 +88,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Fri Apr 14 2023 wangjiang <wangjiang37@h-partners.com> - 12.5.4-6
+- service auto start after install
+
 * Fri Nov 25 2022 zhouwenpei <zhouwenpei1@h-partners.com> - 12.5.4-5
 - update Source0
 
