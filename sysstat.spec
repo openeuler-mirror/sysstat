@@ -1,6 +1,6 @@
 Name:    sysstat
 Version: 12.6.2
-Release: 1
+Release: 2
 Summary: System performance tools for the Linux operating system
 License: GPLv2+
 URL:     http://sebastien.godard.pagesperso-orange.fr/
@@ -45,6 +45,10 @@ Scalable Vector Graphics) format.
 export sadc_options="-S DISK"
 export history="28"
 export compressafter="31"
+%if "%toolchain" == "clang"
+	export CFLAGS="$CFLAGS -Wno-return-type"
+	export CXXFLAGS="$CXXFLAGS -Wno-return-type"
+%endif
 %configure \
     --docdir=%{_pkgdocdir} \
     --enable-install-cron \
@@ -83,6 +87,9 @@ export compressafter="31"
 %{_mandir}/man*/*
 
 %changelog
+* Sat May 06 2023 yoo <sunyuechi@iscas.ac.cn> - 12.6.2-2
+- fix clang build error
+
 * Fri Feb 03 2023 zhangpan <zhangpan@h-partners.com> - 12.6.2-1
 - update to 12.6.2
 
